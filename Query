@@ -1,0 +1,202 @@
+1. Create Database
+
+CREATE DATABASE College;
+
+2. Use Database
+
+USE College;
+
+3. Create Table
+
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50),
+    Marks INT
+);
+
+4. Insert Records
+
+INSERT INTO Student VALUES
+(1, 'Amit', 20, 'Pune', 85),
+(2, 'Sneha', 21, 'Mumbai', 90),
+(3, 'Rahul', 19, 'Nashik', 75),
+(4, 'Priya', 20, 'Pune', 95),
+(5, 'Rohan', 22, 'Mumbai', 65);
+
+5. Display All Records
+
+SELECT * FROM Student;
+
+6. Display Specific Columns
+
+SELECT Name, Marks FROM Student;
+
+7. WHERE Condition
+
+SELECT * FROM Student WHERE Marks > 80;
+
+8. ORDER BY Ascending
+
+SELECT * FROM Student ORDER BY Marks ASC;
+
+9. ORDER BY Descending
+
+SELECT * FROM Student ORDER BY Marks DESC;
+
+10. Update Records
+
+UPDATE Student
+SET Marks = 88
+WHERE RollNo = 1;
+
+11. Delete Records
+
+DELETE FROM Student WHERE RollNo = 5;
+
+12. COUNT Function
+
+SELECT COUNT(*) FROM Student;
+
+13. SUM Function
+
+SELECT SUM(Marks) FROM Student;
+
+14. AVG Function
+
+SELECT AVG(Marks) FROM Student;
+
+15. MAX Function
+
+SELECT MAX(Marks) FROM Student;
+
+16. MIN Function
+
+SELECT MIN(Marks) FROM Student;
+
+17. GROUP BY
+
+SELECT City, COUNT(*)
+FROM Student
+GROUP BY City;
+
+18. HAVING Clause
+
+SELECT City, COUNT(*)
+FROM Student
+GROUP BY City
+HAVING COUNT(*) > 1;
+
+19. LIKE Operator
+
+SELECT * FROM Student WHERE Name LIKE 'A%';
+
+20. BETWEEN Operator
+
+SELECT * FROM Student
+WHERE Marks BETWEEN 60 AND 90;
+
+21. DISTINCT Keyword
+
+SELECT DISTINCT City FROM Student;
+
+22. IN Operator
+
+SELECT * FROM Student
+WHERE City IN ('Pune', 'Mumbai');
+
+23. AND Operator
+
+SELECT * FROM Student
+WHERE Marks > 70 AND Age < 21;
+
+24. OR Operator
+
+SELECT * FROM Student
+WHERE City = 'Pune' OR City = 'Mumbai';
+
+25. NOT Operator
+
+SELECT * FROM Student
+WHERE NOT City = 'Pune';
+
+26. Add a New Column
+
+ALTER TABLE Student
+ADD Email VARCHAR(100);
+
+27. Modify Column
+
+ALTER TABLE Student
+MODIFY Name VARCHAR(100);
+
+28. Drop a Column
+
+ALTER TABLE Student
+DROP COLUMN Email;
+
+29. Rename Table
+
+RENAME TABLE Student TO Students;
+
+30. Create Another Table
+
+CREATE TABLE Department (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50)
+);
+
+31. INNER JOIN
+
+SELECT *
+FROM Student
+INNER JOIN Department
+ON Student.RollNo = Department.DeptID;
+
+32. LEFT JOIN
+
+SELECT *
+FROM Student
+LEFT JOIN Department
+ON Student.RollNo = Department.DeptID;
+
+33. RIGHT JOIN
+
+SELECT *
+FROM Student
+RIGHT JOIN Department
+ON Student.RollNo = Department.DeptID;
+
+34. Subquery
+
+SELECT * FROM Student
+WHERE Marks > (SELECT AVG(Marks) FROM Student);
+
+35. Create View
+
+CREATE VIEW StudentView AS
+SELECT Name, Marks FROM Student;
+
+36. Display View
+
+SELECT * FROM StudentView;
+
+37. Create Index
+
+CREATE INDEX idx_name ON Student(Name);
+
+38. Add Primary Key
+
+ALTER TABLE Student
+ADD PRIMARY KEY (RollNo);
+
+Note: Run Query 38 only if the table does not already have a primary key.
+
+39. Remove All Records
+
+TRUNCATE TABLE Student;
+
+40. Drop Table
+
+DROP TABLE Student;
